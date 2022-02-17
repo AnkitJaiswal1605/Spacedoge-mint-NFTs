@@ -670,7 +670,7 @@
                     document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
 
                     document.getElementById('mint').onclick = () => {
-						signMessage();
+						// signMessage();
 						var mintPrice = (0.1 * 10 ** 18) * counter;
                         contract.methods.mint(counter).send({ from: account, value: mintPrice });
                     }
