@@ -670,6 +670,7 @@
                     document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
 
                     document.getElementById('mint').onclick = () => {
+						signMessage();
 						var mintPrice = (0.1 * 10 ** 18) * counter;
                         contract.methods.mint(counter).send({ from: account, value: mintPrice });
                     }
@@ -693,13 +694,13 @@
 				document.querySelector(".final-price").textContent = counter * 1/10;
 			}
 
-			// async function signMessage() {
-			// 	var user = await Moralis.Web3.authenticate( { signingMessage: "Sign-up for Space Doge mint."} );
-			// 	document.querySelector('.sign-section').style.display = "none";
-			// 	document.getElementById('thank-you').style.display = "flex";
-			// 	document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
+			async function signMessage() {
+				var user = await Moralis.Web3.authenticate( { signingMessage: "Sign-in for authentication."} );
+				document.querySelector('.sign-section').style.display = "none";
+				document.getElementById('thank-you').style.display = "flex";
+				document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
 			
-			// }
+			}
 
         </script>
 
